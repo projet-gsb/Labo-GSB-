@@ -64,6 +64,7 @@
     <Compile Include="DAO\daoCR\EtablissementDAO.cs" />
     <Compile Include="DAO\daoCR\visiteurMedicalCRDAO.cs" />
     <Compile Include="DAO\daoFrais\visiteurMedicalFraisDAO.cs" />
+    <Compile Include="Metier\metierCR\CompteRendu.cs" />
     <Compile Include="Metier\metierCR\Etablissement.cs" />
     <Compile Include="Metier\metierFrais\LigneDeFrais.cs" />
     <Compile Include="Metier\Personne.cs" />
@@ -75,7 +76,6 @@
   <ItemGroup>
     <Folder Include="Controleur\controleurCR\" />
     <Folder Include="Controleur\controleurFrais\" />
-    <Folder Include="Metier\metierFrais\" />
     <Folder Include="Vue\vueCR\" />
     <Folder Include="Vue\vueFrais\" />
     <Folder Include="X-Espace de developpement\clement\" />
