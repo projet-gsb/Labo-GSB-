@@ -10,7 +10,7 @@ namespace Labo_GSB
     {
         static void Main(string[] args)
         {
-            /*commentaire*/
+            /*commentaire réussi*/
         }
     }
 }
