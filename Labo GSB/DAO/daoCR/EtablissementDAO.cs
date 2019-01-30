@@ -32,7 +32,7 @@ namespace Labo_GSB.DAO.daoCR
                 string adresse = dataReader.GetString(2);
                 string mel = dataReader.GetString(3);
                 string type = dataReader.GetString(4);
-                Etablissement etablissement = new Etablissement( idEtablissement, nom, adresse, mel, type);
+                Etablissement etablissement = new Etablissement(idEtablissement, nom, adresse, mel, type);
             }
             dataReader.Close();
         }
