@@ -23,4 +23,5 @@ namespace Labo_GSB.Metier.metierCR
             this.Type = type;
         }
     }
+
 }

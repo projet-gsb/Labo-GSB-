@@ -10,14 +10,21 @@ namespace Labo_GSB.DAO.daoCR
 {
     class EtablissementDAO : DAO<Etablissement>
     {
-        public override void Create(Etablissement objet)
+        public override void Create(Etablissement etablissement)
         {
-            throw new NotImplementedException();
-        }
-
-        public override void Delete(Etablissement objet)
-        {
-            throw new NotImplementedException();
+           SqlCommand command = Connexion.GetInstance().CreateCommand();
+            // Définition de la requête
+            command.CommandText = "INSERT INTO etablissement (nom,adresse,numeroTelephone,mel,type) VALUES (@nom,@adresse,@numeroTelephone,@mel,@type); SELECT SCOPE_IDENTITY()";
+            command.Parameters.AddWithValue("@nom", etablissement.getNom());
+            command.Parameters.AddWithValue("@adresse", etablissement.getAdresse());
+            command.Parameters.AddWithValue("@numeroTelephone", etablissement.getNumeroTelephone());
+            command.Parameters.AddWithValue("@mel", etablissement.getMel());
+            command.Parameters.AddWithValue("@type", etablissement.getType());
+            // Exécution de la requête
+            // command.ExecuteNonQuery();
+            // pour récupérer la clé générée
+            Int32 newId = (Int32)command.ExecuteScalar();
+            etablissement.setId(newId);
         }
 
         public override void Read(int id)
@@ -39,9 +46,32 @@ namespace Labo_GSB.DAO.daoCR
             dataReader.Close();
         }
 
-        public override void Update(Etablissement objet)
+               public override void Update(Etablissement etablissement)
+
         {
-            throw new NotImplementedException();
+            SqlCommand command = Connexion.GetInstance().CreateCommand();
+            // Définition de la requête
+            command.CommandText = "UPDATE personne SET nom = @nom, adresse = @adresse, numeroTelephone = @numeroTelephone, mel = @mel type = @type WHERE id = @id";
+            command.Parameters.AddWithValue("@id", etablissement.getId());
+            command.Parameters.AddWithValue("@nom", etablissement.getNom());
+            command.Parameters.AddWithValue("@adresse", etablissement.getAdresse());
+            command.Parameters.AddWithValue("@numeroTelephone", etablissement.getNumeroTelephone());
+            command.Parameters.AddWithValue("@mel", etablissement.getMel());
+            command.Parameters.AddWithValue("@type", etablissement.getType());
+            // Exécution de la requête
+            command.ExecuteNonQuery();
+        }
+
+         public override void Delete(Etablissement etablissement)
+
+        {
+            SqlCommand command = Connexion.GetInstance().CreateCommand();
+            int idEtablissement = etablissement.getId();
+
+            command.CommandText = "DELETE * FROM etablissement WHERE idEtablissement = @id";
+            command.Parameters.AddWithValue("@id", idEtablissement);
+            command.ExecuteNonQuery();
+
         }
     }
 }
