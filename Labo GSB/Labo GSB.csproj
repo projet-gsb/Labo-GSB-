@@ -61,6 +61,7 @@
     <Compile Include="Controleur\Program.cs" />
     <Compile Include="DAO\Connexion.cs" />
     <Compile Include="DAO\DAO.cs" />
+    <Compile Include="DAO\daoCR\CompteRenduDAO.cs" />
     <Compile Include="DAO\daoCR\EtablissementDAO.cs" />
     <Compile Include="DAO\daoCR\visiteurMedicalCRDAO.cs" />
     <Compile Include="DAO\daoFrais\visiteurMedicalFraisDAO.cs" />
