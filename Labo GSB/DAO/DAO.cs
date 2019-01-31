@@ -11,7 +11,7 @@ namespace Labo_GSB.DAO
         public abstract void Create(T objet);
 
 
-        public abstract void Read(int id);
+        public abstract T Read(int id);
 
 
         public abstract void Update(T objet);

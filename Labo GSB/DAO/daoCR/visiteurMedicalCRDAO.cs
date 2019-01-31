@@ -1,4 +1,5 @@
-﻿using Labo_GSB.Metier.metierCR;
+﻿using Labo_GSB.DAO.daoCR;
+using Labo_GSB.Metier.metierCR;
 using Labo_GSB.Metier.personne;
 using System;
 using System.Collections.Generic;
@@ -34,8 +35,9 @@ namespace Labo_GSB.DAO
             command.ExecuteNonQuery();
         }
 
-        public override void Read(int id)
+        public override VisiteurMedical Read(int id)
         {
+            VisiteurMedical visiteurMedical = null;
             SqlCommand command = Connexion.GetInstance().CreateCommand();
             command.CommandText = "SELECT * FROM personne, visiteurmedical WHERE id = @id AND id = idPersonne";
             command.Parameters.AddWithValue("@id", id);
@@ -51,7 +53,7 @@ namespace Labo_GSB.DAO
                 DateTime dateEmbauche = dataReader.GetDateTime(6);
                 string zoneGeographique = dataReader.GetString(7);
                 List<Etablissement> client = RetrouverListeClient(id);
-                VisiteurMedical visiteurMedical = new VisiteurMedical(dateEmbauche, zoneGeographique, client, idPersonne, nom, prenom, mel, numeroTelephone);
+                visiteurMedical = new VisiteurMedical(dateEmbauche, zoneGeographique, client, idPersonne, nom, prenom, mel, numeroTelephone);
             }
             dataReader.Close();
 
@@ -105,11 +107,11 @@ namespace Labo_GSB.DAO
             SqlDataReader dataReader = command.ExecuteReader();
             while (dataReader.Read())
             {
-                int idEtablissement = dataReader.GetString(0);
-                int idVisiteurMedical = dataReader.GetString(1);
+                int idEtablissement = dataReader.GetInt32(0);
+                int idVisiteurMedical = dataReader.GetInt32(1);
 
                 EtablissementDAO etablissementDAO = new EtablissementDAO();
-                Etablissement etablissement = etablissementDAO->read(idEtablissement);
+                Etablissement etablissement = etablissementDAO.Read(idEtablissement);
 
                 listeClient.Add(etablissement);
             }
