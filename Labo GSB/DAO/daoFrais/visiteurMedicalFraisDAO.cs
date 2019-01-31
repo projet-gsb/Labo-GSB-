@@ -12,6 +12,25 @@ namespace Labo_GSB.DAO
     class VisiteurMedicalFraisDAO : DAO<VisiteurMedical>
     {
 
+        public override void create(VisiteurMedical personne)
+        {
+            SqlCommand command = Connexion.GetInstance().CreateCommand();
+            // Définition de la requête
+            command.CommandText = "INSERT INTO personne, visiteurmedical (nom,prenom,mel,numeroTelephone,dateEmbauche,zoneGeographique) " +
+                                                                                "VALUES (@nom, @prenom,@mel,@numeroTelephone," +
+                                                                                "@dateEmbauche,@zoneGeographique); SELECT SCOPE_IDENTITY()";
+            command.Parameters.AddWithValue("@nom", personne.Nom);
+            command.Parameters.AddWithValue("@prenom",personne.Prenom);
+            command.Parameters.AddWithValue("@mel",personne .Mel);
+            command.Parameters.AddWithValue("@numeroTelephone", personne.NumeroTelephone);
+            command.Parameters.AddWithValue("@dateEmbauche",personne.DateEmbauche);
+            command.Parameters.AddWithValue("@zoneGeographique",personne.ZoneGeographique );
+            // Exécution de la requête
+            // command.ExecuteNonQuery();
+            // pour récupérer la clé générée
+            Int32 newId = (Int32)command.ExecuteScalar();
+        }
+
         public override void Read(int id)
         {
             SqlCommand command = Connexion.GetInstance().CreateCommand();
@@ -32,34 +51,13 @@ namespace Labo_GSB.DAO
                                                                                         prenom, mel, numeroTelephone);
 
             }
-
             //List<Etablissement> client = dataReader[""];
-            dataReader.Close();
-          
+            dataReader.Close();        
         }
 
-        public override void create(VisiteurMedical personne)
-
-        {
-            SqlCommand command = Connexion.GetInstance().CreateCommand();
-            // Définition de la requête
-            command.CommandText = "INSERT INTO personne, visiteurmedical (nom,prenom,mel,numeroTelephone,dateEmbauche,zoneGeographique) " +
-                                                                                "VALUES (@nom, @prenom,@mel,@numeroTelephone," +
-                                                                                "@dateEmbauche,@zoneGeographique); SELECT SCOPE_IDENTITY()";
-            command.Parameters.AddWithValue("@nom", personne.Nom);
-            command.Parameters.AddWithValue("@prenom",personne.Prenom);
-            command.Parameters.AddWithValue("@mel",personne .Mel);
-            command.Parameters.AddWithValue("@numeroTelephone", personne.NumeroTelephone);
-            command.Parameters.AddWithValue("@dateEmbauche",personne.DateEmbauche);
-            command.Parameters.AddWithValue("@zoneGeographique",personne.ZoneGeographique );
-            // Exécution de la requête
-            // command.ExecuteNonQuery();
-            // pour récupérer la clé générée
-            Int32 newId = (Int32)command.ExecuteScalar();
-        }
+        
 
         public override void Update(VisiteurMedical visiteurMedical)
-
         {
             SqlCommand command = Connexion.GetInstance().CreateCommand();
             // Définition de la requête
