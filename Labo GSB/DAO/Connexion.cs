@@ -15,8 +15,14 @@ class Connexion
         {
             // Préparation de la connexion à la base de données
             if (LaConnexion == null)
-            {
-                string connectionString = "Data Source=NOMSERVER Initial Catalog = gsb-gestion; User Id = login; Password = mdp; ";
+            {   //ligne à decommenter en fonction de chaque poste
+                string connectionString = "Data Source=NOMSERVER Initial Catalog = gsb-gestion; User Id = login; Password = mdp; ";//gaetan
+                //string connectionString = "Data Source=NOMSERVER Initial Catalog = gsb-gestion; User Id = login; Password = mdp; ";//gael
+                //string connectionString = "Data Source=NOMSERVER Initial Catalog = gsb-gestion; User Id = login; Password = mdp; ";//florent
+                //string connectionString = "Data Source=NOMSERVER Initial Catalog = gsb-gestion; User Id = login; Password = mdp; ";//frederic
+                //string connectionString = "Data Source=NOMSERVER Initial Catalog = gsb-gestion; User Id = login; Password = mdp; ";//clement
+                //string connectionString = "Data Source=NOMSERVER Initial Catalog = gsb-gestion; User Id = login; Password = mdp; ";//maxime
+
             LaConnexion = new SqlConnection(connectionString);
                 try
                 {
