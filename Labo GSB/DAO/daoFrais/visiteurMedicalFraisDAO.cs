@@ -12,7 +12,7 @@ namespace Labo_GSB.DAO
     class VisiteurMedicalFraisDAO : DAO<VisiteurMedical>
     {
 
-        public override void Create(VisiteurMedical personne)
+        public override void Update(VisiteurMedical personne)
         {
             throw new NotImplementedException();
         }
@@ -44,12 +44,14 @@ namespace Labo_GSB.DAO
           
         }
 
-        public override void Update(VisiteurMedical personne)
+        public override void create(VisiteurMedical personne)
 
         {
             SqlCommand command = Connexion.GetInstance().CreateCommand();
             // Définition de la requête
-            command.CommandText = "INSERT INTO PILOTE (nompil,adr,sal) VALUES (@nom, @adr,@sal); SELECT SCOPE_IDENTITY()";
+            command.CommandText = "INSERT INTO personne, visiteurmedical (nom,prenom,mel,numeroTelephone,idPersonne,dateEmbauche,zoneGeographique) " +
+                                                                                "VALUES (@nom, @prenom,@mel,@numeroTelephone,@idpersonne," +
+                                                                                "@dateEmbauche,@zoneGeographique); SELECT SCOPE_IDENTITY()";
             command.Parameters.AddWithValue("@nom", "Faraday");
             command.Parameters.AddWithValue("@adr", "Dijon");
             command.Parameters.AddWithValue("@sal", 15999);

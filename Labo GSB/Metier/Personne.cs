@@ -39,14 +39,17 @@ namespace Labo_GSB.Metier.personne
         public string ZoneGeographique { get; protected set; }
         public List<Etablissement> Client { get; protected set; }
 
-        public VisiteurMedical(DateTime dateEmbauche, string zoneGeographique, List<Etablissement> client, int idPersonne, string nom, string prenom, string mel, string numeroTelephone) : base(idPersonne, nom, prenom, mel, numeroTelephone)
+        public VisiteurMedical(DateTime dateEmbauche, string zoneGeographique, List<Etablissement> client, int idPersonne, 
+                                    string nom, string prenom, string mel, string numeroTelephone) 
+                                        : base(idPersonne, nom, prenom, mel, numeroTelephone)
         {      
             this.DateEmbauche = dateEmbauche;
             this.ZoneGeographique = zoneGeographique;
             this.Client = client;
         }
 
-        public VisiteurMedical(DateTime dateEmbauche, string zoneGeographique, int idPersonne, string nom, string prenom, string mel, string numeroTelephone) : base(idPersonne, nom, prenom, mel, numeroTelephone)
+        public VisiteurMedical(DateTime dateEmbauche, string zoneGeographique, int idPersonne, string nom, string prenom, 
+                                        string mel, string numeroTelephone) : base(idPersonne, nom, prenom, mel, numeroTelephone)
         {
             this.DateEmbauche = dateEmbauche;
             this.ZoneGeographique = zoneGeographique;
@@ -58,7 +61,9 @@ namespace Labo_GSB.Metier.personne
         public string Commentaire { get; protected set; }
         public List<Etablissement> Employeur { get; protected set; }
 
-        public Contact(string poste, string commentaire, List<Etablissement> employeur, int idPersonne, string nom, string prenom, string mel, string numeroTelephone) : base(idPersonne, nom, prenom, mel, numeroTelephone)
+        public Contact(string poste, string commentaire, List<Etablissement> employeur, int idPersonne, string nom, string prenom, 
+                                        string mel, string numeroTelephone) 
+                                        : base(idPersonne, nom, prenom, mel, numeroTelephone)
         {
             this.Poste = poste;
             this.Commentaire = commentaire;
