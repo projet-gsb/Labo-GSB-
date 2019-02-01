@@ -26,7 +26,7 @@ namespace Labo_GSB.Metier.metierCR
 
         public CompteRendu(int id, int idVisiteurMedical, int idContact, int idEtablissement, string titre, string contenu, DateTime date)
         {
-            this.Id = Id;
+            this.Id = id;
             this.IdVisiteurMedical = idVisiteurMedical;
             this.IdContact = idContact;
             this.IdEtablissement = idEtablissement;

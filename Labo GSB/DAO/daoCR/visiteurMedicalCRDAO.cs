@@ -108,7 +108,6 @@ namespace Labo_GSB.DAO
             while (dataReader.Read())
             {
                 int idEtablissement = dataReader.GetInt32(0);
-                int idVisiteurMedical = dataReader.GetInt32(1);
 
                 EtablissementDAO etablissementDAO = new EtablissementDAO();
                 Etablissement etablissement = etablissementDAO.Read(idEtablissement);

@@ -57,6 +57,7 @@ namespace Labo_GSB.DAO.daoCR
                 compteRendu = new CompteRendu(id,idVisiteurMedical,idContact,idEtablissement,titre,contenu,date);
             }
             datareader.Close();
+
             return compteRendu;
         }
 
