@@ -25,7 +25,7 @@ namespace Labo_GSB.DAO.daoCR
             commande.Parameters.AddWithValue("@date", compteRendu.Date);
 
             int newId = (int)commande.ExecuteScalar();
-            compteRendu.Id;
+            compteRendu.Id = newId;
         }
 
         public override void Delete(CompteRendu compteRendu)
@@ -38,7 +38,7 @@ namespace Labo_GSB.DAO.daoCR
 
         }
 
-        public override void Read(int id)
+        public override CompteRendu Read(int id)
         {
             CompteRendu compteRendu = null;
             SqlCommand commande = Connexion.GetInstance().CreateCommand();

@@ -16,7 +16,7 @@ namespace Labo_GSB.Metier.metierCR
         private string _contenu;
         private DateTime _date;
 
-        public int Id { get => _id; protected set => _id = value; }
+        public int Id { get => _id; set => _id = value; }
         public int IdVisiteurMedical { get => _idVisiteurMedical; protected set => _idVisiteurMedical = value; }
         public int IdContact { get => _idContact; protected set => _idContact = value; }
         public int IdEtablissement { get => _idEtablissement; protected set => _idEtablissement = value; }
