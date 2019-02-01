@@ -64,6 +64,7 @@
     <Compile Include="DAO\daoCR\CompteRenduDAO.cs" />
     <Compile Include="DAO\daoCR\EtablissementDAO.cs" />
     <Compile Include="DAO\daoCR\visiteurMedicalCRDAO.cs" />
+    <Compile Include="DAO\daoFrais\ficheDeFraisDAO.cs" />
     <Compile Include="DAO\daoFrais\visiteurMedicalFraisDAO.cs" />
     <Compile Include="Metier\metierCR\CompteRendu.cs" />
     <Compile Include="Metier\metierCR\Etablissement.cs" />
