@@ -63,11 +63,13 @@
     <Compile Include="DAO\DAO.cs" />
     <Compile Include="DAO\daoCR\CompteRenduDAO.cs" />
     <Compile Include="DAO\daoCR\EtablissementDAO.cs" />
+    <Compile Include="DAO\daoCR\ProduitDAO.cs" />
     <Compile Include="DAO\daoCR\visiteurMedicalCRDAO.cs" />
     <Compile Include="DAO\daoFrais\ficheDeFraisDAO.cs" />
     <Compile Include="DAO\daoFrais\visiteurMedicalFraisDAO.cs" />
     <Compile Include="Metier\metierCR\CompteRendu.cs" />
     <Compile Include="Metier\metierCR\Etablissement.cs" />
+    <Compile Include="Metier\metierCR\Produit.cs" />
     <Compile Include="Metier\metierFrais\LigneDeFrais.cs" />
     <Compile Include="Metier\Personne.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
