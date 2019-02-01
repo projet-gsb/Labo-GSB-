@@ -18,20 +18,20 @@ namespace Labo_GSB.DAO
             SqlCommand command = Connexion.GetInstance().CreateCommand();
             // Définition de la requête
             command.CommandText = "INSERT INTO personne (nom,prenom,mel,numeroTelephone) VALUES (@nom,@prenom,@mel,@numeroTelephone); SELECT SCOPE_IDENTITY()";
-            command.Parameters.AddWithValue("@nom", visiteurMedical.getNom());
-            command.Parameters.AddWithValue("@prenom", visiteurMedical.getPrenom());
-            command.Parameters.AddWithValue("@mel", visiteurMedical.getMel());
-            command.Parameters.AddWithValue("@numeroTelephone", visiteurMedical.getNumeroTelephone());
+            command.Parameters.AddWithValue("@nom", visiteurMedical.Nom);
+            command.Parameters.AddWithValue("@prenom", visiteurMedical.Prenom);
+            command.Parameters.AddWithValue("@mel", visiteurMedical.Mel);
+            command.Parameters.AddWithValue("@numeroTelephone", visiteurMedical.NumeroTelephone);
             // Exécution de la requête
             // command.ExecuteNonQuery();
             // pour récupérer la clé générée
-            Int32 newId = (Int32)command.ExecuteScalar();
-            visiteurMedical.setId(newId);
+            int newId = (int)command.ExecuteScalar();
+            visiteurMedical.Id = newId;
 
             command.CommandText = "INSERT INTO visiteurmedical (idPersonne,dateEmbauche,zoneGeographique) VALUES (@idPersonne,@dateEmbauche,@zoneGeographique)";
-            command.Parameters.AddWithValue("@idPersonne", visiteurMedical.getId());
-            command.Parameters.AddWithValue("@dateEmbauche", visiteurMedical.getDateEmbauche());
-            command.Parameters.AddWithValue("@zoneGeographique", visiteurMedical.getZoneGeographique());
+            command.Parameters.AddWithValue("@idPersonne", visiteurMedical.Id);
+            command.Parameters.AddWithValue("@dateEmbauche", visiteurMedical.DateEmbauche);
+            command.Parameters.AddWithValue("@zoneGeographique", visiteurMedical.ZoneGeographique);
             command.ExecuteNonQuery();
         }
 
@@ -66,18 +66,18 @@ namespace Labo_GSB.DAO
             SqlCommand command = Connexion.GetInstance().CreateCommand();
             // Définition de la requête
             command.CommandText = "UPDATE personne SET nom = @nom, prenom = @prenom, mel = @mel, numeroTelephone = @numeroTelephone WHERE id = @id";
-            command.Parameters.AddWithValue("@id", visiteurMedical.getId());
-            command.Parameters.AddWithValue("@nom", visiteurMedical.getNom());
-            command.Parameters.AddWithValue("@prenom", visiteurMedical.getPrenom());
-            command.Parameters.AddWithValue("@mel", visiteurMedical.getMel());
-            command.Parameters.AddWithValue("@numeroTelephone", visiteurMedical.getNumeroTelephone());
+            command.Parameters.AddWithValue("@id", visiteurMedical.Id);
+            command.Parameters.AddWithValue("@nom", visiteurMedical.Nom);
+            command.Parameters.AddWithValue("@prenom", visiteurMedical.Prenom);
+            command.Parameters.AddWithValue("@mel", visiteurMedical.Mel);
+            command.Parameters.AddWithValue("@numeroTelephone", visiteurMedical.NumeroTelephone);
             // Exécution de la requête
             command.ExecuteNonQuery();
 
             command.CommandText = "UPDATE visiteurmedical SET dateEmbauche = @dateEmbauche, zoneGeographique = @zoneGeographique WHERE idPersonne = @id";
-            command.Parameters.AddWithValue("@nom", visiteurMedical.getId());
-            command.Parameters.AddWithValue("@nom", visiteurMedical.getDateEmbauche());
-            command.Parameters.AddWithValue("@prenom", visiteurMedical.getZoneGeographique());
+            command.Parameters.AddWithValue("@nom", visiteurMedical.Id);
+            command.Parameters.AddWithValue("@nom", visiteurMedical.DateEmbauche);
+            command.Parameters.AddWithValue("@prenom", visiteurMedical.ZoneGeographique);
             // Exécution de la requête
             command.ExecuteNonQuery();
         }
@@ -85,7 +85,7 @@ namespace Labo_GSB.DAO
         public override void Delete(VisiteurMedical visiteurMedical)
         {
             SqlCommand command = Connexion.GetInstance().CreateCommand();
-            int idVisiteurMedical = visiteurMedical.getId();
+            int idVisiteurMedical = visiteurMedical.Id;
 
             command.CommandText = "DELETE * FROM visiteurmedical WHERE idPersonne = @id";
             command.Parameters.AddWithValue("@id", idVisiteurMedical);

@@ -14,11 +14,17 @@ namespace Labo_GSB.Metier.personne
 
     public abstract class Personne : IPersonne
     {
-        public int Id { get; }
-        public string Nom { get; protected set; }
-        public string Prenom { get; protected set; }
-        public string Mel { get; protected set; }
-        public string NumeroTelephone { get; protected set; }
+        private string _nom;
+        private int _id;
+        private string _prenom;
+        private string _mel;
+        private string _numeroTelephone;
+
+        public int Id { get => _id;  set => _id = value; }
+        public string Nom { get => _nom; protected set => _nom = value; }
+        public string Prenom { get => _prenom; protected set => _prenom = value; }
+        public string Mel { get => _mel; protected set => _mel = value; }
+        public string NumeroTelephone { get => _numeroTelephone; protected set => _numeroTelephone = value; }
 
         protected Personne(int id, string nom, string prenom, string mel, string numeroTelephone)
         {
@@ -35,34 +41,43 @@ namespace Labo_GSB.Metier.personne
     class VisiteurMedical : Personne
 
     {
-        public DateTime DateEmbauche { get; protected set; }
-        public string ZoneGeographique { get; protected set; }
-        public List<Etablissement> Client { get; protected set; }
+        private DateTime _dateEmbauche;
+        private string _zoneGeographique;
+        private List<Etablissement> _client;
 
-        public VisiteurMedical(DateTime dateEmbauche, string zoneGeographique, List<Etablissement> client, int idPersonne, 
-                                    string nom, string prenom, string mel, string numeroTelephone) 
+        public DateTime DateEmbauche { get => _dateEmbauche; protected set => _dateEmbauche = value; }
+        public string ZoneGeographique { get => _zoneGeographique; protected set => _zoneGeographique = value; }
+        public List<Etablissement> Client { get => _client; protected set => _client = value; }
+
+        public VisiteurMedical(DateTime dateEmbauche, string zoneGeographique, List<Etablissement> client, int idPersonne,
+                                    string nom, string prenom, string mel, string numeroTelephone)
                                         : base(idPersonne, nom, prenom, mel, numeroTelephone)
-        {      
+        {
             this.DateEmbauche = dateEmbauche;
             this.ZoneGeographique = zoneGeographique;
             this.Client = client;
         }
 
-        public VisiteurMedical(DateTime dateEmbauche, string zoneGeographique, int idPersonne, string nom, string prenom, 
+        public VisiteurMedical(DateTime dateEmbauche, string zoneGeographique, int idPersonne, string nom, string prenom,
                                         string mel, string numeroTelephone) : base(idPersonne, nom, prenom, mel, numeroTelephone)
         {
             this.DateEmbauche = dateEmbauche;
             this.ZoneGeographique = zoneGeographique;
-           
+
         }
     }
     class Contact : Personne
-    {   public string Poste { get; protected set; }
-        public string Commentaire { get; protected set; }
-        public List<Etablissement> Employeur { get; protected set; }
+    {
+        private string _poste;
+        private string _commentaire;
+        private List<Etablissement> _employeur;
 
-        public Contact(string poste, string commentaire, List<Etablissement> employeur, int idPersonne, string nom, string prenom, 
-                                        string mel, string numeroTelephone) 
+        public string Poste { get => _poste; protected set => _poste = value; }
+        public string Commentaire { get => _commentaire; protected set => _commentaire = value; }
+        public List<Etablissement> Employeur { get => _employeur; protected set => _employeur = value; }
+
+        public Contact(string poste, string commentaire, List<Etablissement> employeur, int idPersonne, string nom, string prenom,
+                                        string mel, string numeroTelephone)
                                         : base(idPersonne, nom, prenom, mel, numeroTelephone)
         {
             this.Poste = poste;
