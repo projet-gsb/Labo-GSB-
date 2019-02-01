@@ -8,12 +8,17 @@ namespace Labo_GSB.Metier.metierCR
 {
     class Produit
     {
-        public int Id  { get; protected set ; }
-        public string Designation { get; protected set; }
-        public int Quantite { get; protected set; }
-        public double Tarif { get; protected set; }
+        private int _id;
+        private string _designation;
+        private int _quantite;
+        private double _tarif;
 
-        public Produit(int id, string designation, int quantite, int tarif)
+        public int Id { get => _id; set => _id = value; }
+        public string Designation { get => _designation; protected set => _designation = value; }
+        public int Quantite { get => _quantite; protected set => _quantite = value; }
+        public double Tarif { get => _tarif; protected set => _tarif = value; }
+
+        public Produit(int id, string designation, int quantite, double tarif)
         {
             this.Id = id;
             this.Designation = designation;

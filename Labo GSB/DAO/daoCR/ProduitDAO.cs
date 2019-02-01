@@ -18,14 +18,14 @@ namespace Labo_GSB.DAO.daoCR
             commande.Parameters.AddWithValue("@quantite", produit.Quantite);
             commande.Parameters.AddWithValue("@tarif", produit.Tarif);
             
-            Int32 newId = (Int32)commande.ExecuteScalar();
-            produit.setId(newId);
+            int newId = (int)commande.ExecuteScalar();
+            produit.Id = newId;
         }
 
         public override void Delete(Produit produit)
         {
             SqlCommand commande = Connexion.GetInstance().CreateCommand();
-            int id = produit.getId();
+            int id = produit.Id;
             commande.CommandText = "DELETE * FROM produit WHERE id = @id";
             commande.Parameters.AddWithValue("@id", id);
             commande.ExecuteNonQuery();
@@ -33,7 +33,7 @@ namespace Labo_GSB.DAO.daoCR
 
         public override Produit Read(int id)
         {
-            
+            Produit produit = null;
             SqlCommand commande = Connexion.GetInstance().CreateCommand();
             commande.CommandText = "SELECT * FROM produit WHERE id = @id";
             commande.Parameters.AddWithValue("@id", id);
@@ -41,13 +41,15 @@ namespace Labo_GSB.DAO.daoCR
             while (datareader.Read())
             {
                 int Id = id;
-                string Designation = datareader.GetString(1);
-                int Quantite = quantite;
-                double Tarif = tarif;
+                string designation = datareader.GetString(1);
+                int quantite = datareader.GetInt32(2);
+                double tarif = datareader.GetDouble(3);
 
-                Produit produit = new Produit(id,designation,quantite,tarif);
+                produit = new Produit(id, designation, quantite, tarif);
             }
             datareader.Close();
+
+            return produit;
         }
 
         public override void Update(Produit produit)
