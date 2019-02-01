@@ -24,14 +24,14 @@ namespace Labo_GSB.DAO.daoCR
             commande.Parameters.AddWithValue("@contenu", compteRendu.Contenu);
             commande.Parameters.AddWithValue("@date", compteRendu.Date);
 
-            Int32 newId = (Int32)commande.ExecuteScalar();
-            compteRendu.setId(newId);
+            int newId = (int)commande.ExecuteScalar();
+            compteRendu.Id;
         }
 
         public override void Delete(CompteRendu compteRendu)
         {
             SqlCommand commande = Connexion.GetInstance().CreateCommand();
-            int id = compteRendu.getId();
+            int id = compteRendu.Id;
             commande.CommandText = "DELETE * FROM compterendu WHERE id = @id";
             commande.Parameters.AddWithValue("@id", id);
             commande.ExecuteNonQuery();
@@ -48,17 +48,18 @@ namespace Labo_GSB.DAO.daoCR
             while(datareader.Read())
             {
                 int Id = id;
-                int IdVisiteurMedical = idVisiteurMedical;
-                int IdContact = idContact;
-                int IdEtablissement = idEtablissement;
-                string Titre = datareader.GetString(4);
-                string Contenu = datareader.GetString(5);
-                DateTime Date = datareader.GetDateTime(6);
+                int idVisiteurMedical = datareader.GetInt32(1); ;
+                int idContact = datareader.GetInt32(2);
+                int idEtablissement = datareader.GetInt32(3);
+                string titre = datareader.GetString(4);
+                string contenu = datareader.GetString(5);
+                DateTime date = datareader.GetDateTime(6);
                 compteRendu = new CompteRendu(id,idVisiteurMedical,idContact,idEtablissement,titre,contenu,date);
             }
             datareader.Close();
 
             return compteRendu;
+
         }
 
         public override void Update(CompteRendu compteRendu)
@@ -66,13 +67,13 @@ namespace Labo_GSB.DAO.daoCR
             SqlCommand commande = Connexion.GetInstance().CreateCommand();
             commande.CommandText = "UPDATE compterendu  SET idVisiteurMedical = @idVisiteurMedical, idContact = @idContact, idEtablissement = @idEtablissement, titre = @titre contenu = @contenu date = @date WHERE id = @id";
 
-            commande.Parameters.AddWithValue("@id", compteRendu.getId());
-            commande.Parameters.AddWithValue("@idVisiteurMedical", compteRendu.getIdVisiteurMedical());
-            commande.Parameters.AddWithValue("@idContact", compteRendu.getIdContact());
-            commande.Parameters.AddWithValue("@idEtablissement", compteRendu.getIdEtablissement());
-            commande.Parameters.AddWithValue("@titre", compteRendu.getTitre());
-            commande.Parameters.AddWithValue("@contenu", compteRendu.getContenu());
-            commande.Parameters.AddWithValue("@date", compteRendu.getDate());
+            commande.Parameters.AddWithValue("@id", compteRendu.Id);
+            commande.Parameters.AddWithValue("@idVisiteurMedical", compteRendu.IdVisiteurMedical);
+            commande.Parameters.AddWithValue("@idContact", compteRendu.IdContact);
+            commande.Parameters.AddWithValue("@idEtablissement", compteRendu.IdEtablissement);
+            commande.Parameters.AddWithValue("@titre", compteRendu.Titre);
+            commande.Parameters.AddWithValue("@contenu", compteRendu.Contenu);
+            commande.Parameters.AddWithValue("@date", compteRendu.Date);
             commande.ExecuteNonQuery();
         }
     }
