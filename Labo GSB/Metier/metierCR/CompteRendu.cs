@@ -16,7 +16,7 @@ namespace Labo_GSB.Metier.metierCR
         public string Contenu { get; protected set; }
         public DateTime Date { get; protected set; }
 
-        public CompteRendu( int id, int idVisiteurMedical, int idContact, int idEtablissement, string titre, string contenu, DateTime date)
+        protected CompteRendu( int id, int idVisiteurMedical, int idContact, int idEtablissement, string titre, string contenu, DateTime date)
         {
             this.Id = Id;
             this.IdVisiteurMedical = idVisiteurMedical;
