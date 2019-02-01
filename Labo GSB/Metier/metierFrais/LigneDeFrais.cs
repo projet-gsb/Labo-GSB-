@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Labo_GSB.Metier.metierFrais
 {
+    // BDD
     class LigneDeFrais
     {
         public int Id { get; }

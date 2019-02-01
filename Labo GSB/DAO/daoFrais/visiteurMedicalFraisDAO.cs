@@ -31,7 +31,7 @@ namespace Labo_GSB.DAO
             Int32 newId = (Int32)command.ExecuteScalar();
         }
 
-        public override void Read(int id)
+        public override VisiteurMedical   Read(int id)
         {
             SqlCommand command = Connexion.GetInstance().CreateCommand();
             command.CommandText = "SELECT * FROM personne, visiteurmedical WHERE id = @id AND id = idPersonne";
@@ -52,7 +52,8 @@ namespace Labo_GSB.DAO
 
             }
             //List<Etablissement> client = dataReader[""];
-            dataReader.Close();        
+            dataReader.Close();  
+            return visiteurMedical;
         }
 
         
