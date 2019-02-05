@@ -73,6 +73,7 @@
     <Compile Include="Metier\metierCR\Echantillon.cs" />
     <Compile Include="Metier\metierCR\Etablissement.cs" />
     <Compile Include="Metier\metierCR\Produit.cs" />
+    <Compile Include="Metier\metierFrais\FicheDeFrais.cs" />
     <Compile Include="Metier\metierFrais\LigneDeFrais.cs" />
     <Compile Include="Metier\Personne.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
