@@ -67,7 +67,10 @@
     <Compile Include="DAO\daoCR\ProduitDAO.cs" />
     <Compile Include="DAO\daoCR\ContactDAO.cs" />
     <Compile Include="DAO\daoCR\visiteurMedicalCRDAO.cs" />
-    <Compile Include="DAO\daoFrais\ficheDeFraisDAO.cs" />
+    <Compile Include="DAO\daoFrais\FicheDeFraisDAO.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="DAO\daoFrais\LigneDeFraisDAO.cs" />
     <Compile Include="DAO\daoFrais\visiteurMedicalFraisDAO.cs" />
     <Compile Include="Metier\metierCR\CompteRendu.cs" />
     <Compile Include="Metier\metierCR\Echantillon.cs" />

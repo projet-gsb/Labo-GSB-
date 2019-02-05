@@ -8,26 +8,64 @@ using System.Threading.Tasks;
 
 namespace Labo_GSB.DAO.daoFrais
 {
-    class LigneDeFraisDAO : DAO<LigneDeFrais>
+    class FicheDeFraisDAO : DAO<FicheDeFrais>
     {
-        public override void create(LigneDeFrais lignedefrais)
+        public override void Create(FicheDeFrais fichedefrais)
         {
-            SqlCommand command = Connexion.GetInstance().CreateCommand();
-            // Définition de la requête
-            command.CommandText = "INSERT INTO lignedefrais (date, montant, libelle, validee, refusee, horsForfait, report) VALUES(@date, @montant, @libelle, @validee, @refusee, @horsForfait, @report); SELECT SCOPE_IDENTITY()";
-            command.Parameters.AddWithValue("@date", lignedefrais.Date);
-            command.Parameters.AddWithValue("@montant", lignedefrais.Montant);
-            command.Parameters.AddWithValue("@libelle", lignedefrais.Libelle);
-            command.Parameters.AddWithValue("@validee", lignedefrais.Validee);
-            command.Parameters.AddWithValue("@refusee", lignedefrais.Refusee);
-            command.Parameters.AddWithValue("@horsForfait", lignedefrais.HorsForfait);
-            command.Parameters.AddWithValue("@report", lignedefrais.Report);
+            SqlCommand commande = Connexion.GetInstance().CreateCommand();
+            commande.CommandText = "INSERT INTO fichedefrais (idVisiteurMedical,dateCreation,dateTraitement,miseEnPaiement) VALUES (@idVisiteurMedical,@dateCreation,@dateTraitement,@miseEnPaiement); SELECT SCOPE_IDENTITY()";
+            commande.Parameters.AddWithValue("@idVisiteurMedical", fichedefrais.IdVisiteurMedical);
+            commande.Parameters.AddWithValue("@dateCreation", fichedefrais.DateCreation);
+            commande.Parameters.AddWithValue("@dateTraitement", fichedefrais.DateTraitement);
+            commande.Parameters.AddWithValue("@miseEnPaiement", fichedefrais.MiseEnPaiement);
 
-            // Exécution de la requête
-            // command.ExecuteNonQuery();
-            // pour récupérer la clé générée
-            Int32 newId = (Int32)command.ExecuteScalar();
-            lignedefrais.setId(newId);
+            int newId = (int)commande.ExecuteScalar();
+            fichedefrais.Id = newId;
+        }
+
+        public override void Delete(FicheDeFrais fichedefrais)
+        {
+            SqlCommand commande = Connexion.GetInstance().CreateCommand();
+            int id = fichedefrais.Id;
+            commande.CommandText = "DELETE * FROM fichedefrais WHERE id = @id";
+            commande.Parameters.AddWithValue("@id", id);
+            commande.ExecuteNonQuery();
+
+        }
+
+        public override FicheDeFrais Read(int id)
+        {
+            FicheDeFrais fichedefrais = null;
+            SqlCommand commande = Connexion.GetInstance().CreateCommand();
+            commande.CommandText = "SELECT * FROM fichedefrais WHERE id = @id";
+            commande.Parameters.AddWithValue("@id", id);
+            SqlDataReader datareader = commande.ExecuteReader();
+            while (datareader.Read())
+            {
+                int Id = id;
+                int idVisiteurMedical = datareader.GetInt32(1); ;
+                DateTime dateCreation = datareader.GetDateTime(6);
+                DateTime dateTraitement = datareader.GetDateTime(6);
+                bool miseEnPaiement = datareader.GetBytes();
+                fichedefrais = new FicheDeFrais(id, idVisiteurMedical, dateCreation, dateTraitement, miseEnPaiement);
+            }
+            datareader.Close();
+
+            return fichedefrais;
+
+        }
+
+        public override void Update(FicheDeFrais fichedefrais)
+        {
+            SqlCommand commande = Connexion.GetInstance().CreateCommand();
+            commande.CommandText = "UPDATE compterendu  SET idVisiteurMedical = @idVisiteurMedical, dateCreation = @dateCreation, dateTraitement = @dateTraitement, miseEnPaiement = @miseEnPaiement WHERE id = @id";
+
+            commande.Parameters.AddWithValue("@id", fichedefrais.Id);
+            commande.Parameters.AddWithValue("@idVisiteurMedical", fichedefrais.IdVisiteurMedical);
+            commande.Parameters.AddWithValue("@dateCreation", fichedefrais.DateCreation);
+            commande.Parameters.AddWithValue("@dateTraitement", fichedefrais.DateTraitement);
+            commande.Parameters.AddWithValue("@miseEnPaiement", fichedefrais.MiseEnPaiement);
+            commande.ExecuteNonQuery();
         }
     }
 }

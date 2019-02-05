@@ -10,14 +10,14 @@ namespace Labo_GSB.Metier.metierFrais{
     class FicheDeFrais{
 
         public int Id { get; }
-        public int IdVisiteur { get; }
+        public int IdVisiteurMedical { get; }
         public DateTime DateCreation { get; protected set; }
         public DateTime DateTraitement { get; protected set; }
         public bool MiseEnPaiement { get; protected set; }
 
-        public FicheDeFrais (int id, int idvisiteur, DateTime datecreation, DateTime datetraitement, bool miseenpaiement){
+        public FicheDeFrais (int id, int idvisiteurmedical, DateTime datecreation, DateTime datetraitement, bool miseenpaiement){
             this.Id = id;
-            this.IdVisiteur = idvisiteur;
+            this.IdVisiteurMedical = idvisiteurmedical;
             this.DateCreation = datecreation;
             this.DateTraitement = datetraitement;
             this.MiseEnPaiement = miseenpaiement;
