@@ -9,8 +9,8 @@ namespace Labo_GSB.Metier.metierFrais{
     //BDD
     class FicheDeFrais{
 
-        public int Id { get; }
-        public int IdVisiteurMedical { get; }
+        public int Id { get; set; }
+        public int IdVisiteurMedical { get; set; }
         public DateTime DateCreation { get; protected set; }
         public DateTime DateTraitement { get; protected set; }
         public bool MiseEnPaiement { get; protected set; }

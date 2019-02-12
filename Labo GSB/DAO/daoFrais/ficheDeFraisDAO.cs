@@ -46,7 +46,7 @@ namespace Labo_GSB.DAO.daoFrais
                 int idVisiteurMedical = datareader.GetInt32(1); ;
                 DateTime dateCreation = datareader.GetDateTime(6);
                 DateTime dateTraitement = datareader.GetDateTime(6);
-                bool miseEnPaiement = datareader.GetBytes();
+                bool miseEnPaiement = datareader.GetBoolean(1);
                 fichedefrais = new FicheDeFrais(id, idVisiteurMedical, dateCreation, dateTraitement, miseEnPaiement);
             }
             datareader.Close();

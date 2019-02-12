@@ -12,7 +12,7 @@ namespace Labo_GSB.DAO
     class VisiteurMedicalFraisDAO : DAO<VisiteurMedical>
     {
 
-        public override void create(VisiteurMedical personne)
+        public override void Create(VisiteurMedical personne)
         {
             SqlCommand command = Connexion.GetInstance().CreateCommand();
             // Définition de la requête
