@@ -44,18 +44,22 @@ namespace Labo_GSB.Metier.personne
         private DateTime _dateEmbauche;
         private string _zoneGeographique;
         private List<Etablissement> _client;
+        private string _motDePasse;
 
         public DateTime DateEmbauche { get => _dateEmbauche; protected set => _dateEmbauche = value; }
         public string ZoneGeographique { get => _zoneGeographique; protected set => _zoneGeographique = value; }
         public List<Etablissement> Client { get => _client; protected set => _client = value; }
+        public string MotDePasse { get => _motDePasse; protected set => _motDePasse = value; }
 
-        public VisiteurMedical(DateTime dateEmbauche, string zoneGeographique, List<Etablissement> client, int idPersonne,
+        public VisiteurMedical(DateTime dateEmbauche, string zoneGeographique, List<Etablissement> client, string motDePasse, int idPersonne,
                                     string nom, string prenom, string mel, string numeroTelephone)
                                         : base(idPersonne, nom, prenom, mel, numeroTelephone)
         {
             this.DateEmbauche = dateEmbauche;
             this.ZoneGeographique = zoneGeographique;
             this.Client = client;
+            this.MotDePasse = motDePasse;
+
         }
 
         public VisiteurMedical(DateTime dateEmbauche, string zoneGeographique, int idPersonne, string nom, string prenom,
@@ -63,6 +67,7 @@ namespace Labo_GSB.Metier.personne
         {
             this.DateEmbauche = dateEmbauche;
             this.ZoneGeographique = zoneGeographique;
+
 
         }
     }

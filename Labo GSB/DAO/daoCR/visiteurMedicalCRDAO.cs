@@ -28,10 +28,11 @@ namespace Labo_GSB.DAO
             int newId = (int)command.ExecuteScalar();
             visiteurMedical.Id = newId;
 
-            command.CommandText = "INSERT INTO visiteurmedical (idPersonne,dateEmbauche,zoneGeographique) VALUES (@idPersonne,@dateEmbauche,@zoneGeographique)";
+            command.CommandText = "INSERT INTO visiteurmedical (idPersonne,dateEmbauche,zoneGeographique,motDePasse) VALUES (@idPersonne,@dateEmbauche,@zoneGeographique,@motDePasse)";
             command.Parameters.AddWithValue("@idPersonne", visiteurMedical.Id);
             command.Parameters.AddWithValue("@dateEmbauche", visiteurMedical.DateEmbauche);
             command.Parameters.AddWithValue("@zoneGeographique", visiteurMedical.ZoneGeographique);
+            command.Parameters.AddWithValue("@motDePasse", visiteurMedical.MotDePasse);
             command.ExecuteNonQuery();
         }
 
@@ -53,7 +54,8 @@ namespace Labo_GSB.DAO
                 DateTime dateEmbauche = dataReader.GetDateTime(6);
                 string zoneGeographique = dataReader.GetString(7);
                 List<Etablissement> client = RetrouverListeClient(id);
-                visiteurMedical = new VisiteurMedical(dateEmbauche, zoneGeographique, client, idPersonne, nom, prenom, mel, numeroTelephone);
+                string motDePasse = dataReader.GetString(9);
+                visiteurMedical = new VisiteurMedical(dateEmbauche, zoneGeographique, client, motDePasse, idPersonne, nom, prenom, mel, numeroTelephone);
             }
             dataReader.Close();
 
@@ -74,10 +76,11 @@ namespace Labo_GSB.DAO
             // Exécution de la requête
             command.ExecuteNonQuery();
 
-            command.CommandText = "UPDATE visiteurmedical SET dateEmbauche = @dateEmbauche, zoneGeographique = @zoneGeographique WHERE idPersonne = @id";
-            command.Parameters.AddWithValue("@nom", visiteurMedical.Id);
-            command.Parameters.AddWithValue("@nom", visiteurMedical.DateEmbauche);
-            command.Parameters.AddWithValue("@prenom", visiteurMedical.ZoneGeographique);
+            command.CommandText = "UPDATE visiteurmedical SET dateEmbauche = @dateEmbauche, zoneGeographique = @zoneGeographique, motDePasse=@motDePasse WHERE idPersonne = @id";
+            command.Parameters.AddWithValue("@id", visiteurMedical.Id);
+            command.Parameters.AddWithValue("@dateEmbauche", visiteurMedical.DateEmbauche);
+            command.Parameters.AddWithValue("@zoneGeographique", visiteurMedical.ZoneGeographique);
+            command.Parameters.AddWithValue("@motDePasse", visiteurMedical.MotDePasse);
             // Exécution de la requête
             command.ExecuteNonQuery();
         }
