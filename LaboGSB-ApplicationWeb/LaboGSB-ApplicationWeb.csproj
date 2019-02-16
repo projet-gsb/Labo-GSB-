@@ -131,7 +131,9 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="MVC\Vue\vueCR\WebForm1.aspx" />
+    <Content Include="MVC\Vue\vueCR\Connexion.aspx" />
+    <Content Include="MVC\Vue\vueCR\FormEtablissement.aspx" />
+    <Content Include="MVC\Vue\vueCR\GestionCompteRendu.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -215,12 +217,26 @@
     <Compile Include="MVC\Model\Metier\metierFrais\FicheDeFrais.cs" />
     <Compile Include="MVC\Model\Metier\metierFrais\LigneDeFrais.cs" />
     <Compile Include="MVC\Model\Metier\Personne.cs" />
-    <Compile Include="MVC\Vue\vueCR\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="MVC\Vue\vueCR\Connexion.aspx.cs">
+      <DependentUpon>Connexion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MVC\Vue\vueCR\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="MVC\Vue\vueCR\Connexion.aspx.designer.cs">
+      <DependentUpon>Connexion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MVC\Vue\vueCR\FormEtablissement.aspx.cs">
+      <DependentUpon>FormEtablissement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MVC\Vue\vueCR\FormEtablissement.aspx.designer.cs">
+      <DependentUpon>FormEtablissement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MVC\Vue\vueCR\GestionCompteRendu.aspx.cs">
+      <DependentUpon>GestionCompteRendu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MVC\Vue\vueCR\GestionCompteRendu.aspx.designer.cs">
+      <DependentUpon>GestionCompteRendu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MVC\Vue\PageDefault\Site.Master.cs">
