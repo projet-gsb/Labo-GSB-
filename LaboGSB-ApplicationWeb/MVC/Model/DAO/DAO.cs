@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Labo_GSB.DAO
 {
-    public abstract class DAO <T>
+    public abstract class DAO<T>
     {
+        public DAO()
+        {
+
+        }
+
         public abstract void Create(T objet);
 
 
