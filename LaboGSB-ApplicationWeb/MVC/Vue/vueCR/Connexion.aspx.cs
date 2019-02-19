@@ -14,7 +14,7 @@ namespace LaboGSB_ApplicationWeb.MVC.Vue.vueCR
 
         }
 
-        protected void Login2_Authenticate(object sender, AuthenticateEventArgs e)
+        protected void Button1_Command(object sender, CommandEventArgs e)
         {
 
         }

@@ -167,6 +167,13 @@
     <Content Include="MVC\Vue\PageDefault\Web.config" />
     <Content Include="MVC\Vue\PageDefault\Bundle.config" />
     <Content Include="MVC\Vue\PageDefault\Site.Mobile.Master" />
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
