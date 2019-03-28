@@ -40,31 +40,40 @@ namespace LaboGSB_ApplicationWeb.MVC.Vue.vueCR {
         protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// Contrôle Button1.
+        /// Contrôle ButtonCompteRendu.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button ButtonCompteRendu;
         
         /// <summary>
-        /// Contrôle Button2.
+        /// Contrôle ButtonGestionFrais.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button ButtonGestionFrais;
         
         /// <summary>
-        /// Contrôle Button3.
+        /// Contrôle ButtonFormEtablissement.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button ButtonFormEtablissement;
+        
+        /// <summary>
+        /// Contrôle ButtonFormContact.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonFormContact;
         
         /// <summary>
         /// Contrôle GridView1.

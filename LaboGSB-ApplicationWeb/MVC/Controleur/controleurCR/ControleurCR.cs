@@ -10,6 +10,6 @@ namespace Labo_GSB.Controleur.controleurCR
 {
     static class ControleurCR
     {
-       
+        
     }
 }

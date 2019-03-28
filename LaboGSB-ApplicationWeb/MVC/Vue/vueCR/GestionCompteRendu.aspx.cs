@@ -23,5 +23,10 @@ namespace LaboGSB_ApplicationWeb.MVC.Vue.vueCR
         {
             Server.Transfer("FormEtablissement.aspx");
         }
+
+        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
+        {
+
+        }
     }
 }

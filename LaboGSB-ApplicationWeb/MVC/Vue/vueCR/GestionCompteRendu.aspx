@@ -10,7 +10,7 @@
 <body>
     <h2>Gestion Compte-Rendu</h2>
     <form id="form1" runat="server">
-        <><asp:Menu ID="Menu1" runat="server" Height="140px" Width="143px">
+        <><asp:Menu ID="Menu1" runat="server" Height="140px" Width="143px" OnMenuItemClick="Menu1_MenuItemClick">
             <Items>
                 <asp:MenuItem Text="Fichier" Value="Fichier">
                     <asp:MenuItem Text="Quitter" Value="Quitter"></asp:MenuItem>
@@ -26,10 +26,11 @@
         </asp:Menu>
 &nbsp;<asp:Panel ID="Panel1" runat="server" Height="97px">
                 <p>
-                    <asp:Button ID="Button1" runat="server" Text="Compte-Rendu" Height="39px" />
+                    <asp:Button ID="ButtonCompteRendu" runat="server" Text="Compte-Rendu" Height="39px" />
+                    <asp:Button ID="ButtonGestionFrais" runat="server" style="margin-top: 0px" Text="Gestion fiche de frais" />
                 </p>
-                <asp:Button ID="Button2" runat="server" Text="Ajouter Etablissement" OnClick="Button2_Click" />
-                <asp:Button ID="Button3" runat="server" Text="Ajouter Contact" />
+                <asp:Button ID="ButtonFormEtablissement" runat="server" Text="Ajouter Etablissement" OnClick="Button2_Click" />
+                <asp:Button ID="ButtonFormContact" runat="server" Text="Ajouter Contact" />
 
             </asp:Panel>
         </>
