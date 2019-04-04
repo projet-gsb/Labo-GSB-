@@ -130,6 +130,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="X-Espace de developpement\maxime\testMax.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="MVC\Vue\vueCR\Connexion.aspx" />
     <Content Include="MVC\Vue\vueCR\FormEtablissement.aspx" />
@@ -267,6 +268,13 @@
     <Compile Include="MVC\Vue\PageDefault\ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="X-Espace de developpement\maxime\testMax.aspx.cs">
+      <DependentUpon>testMax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="X-Espace de developpement\maxime\testMax.aspx.designer.cs">
+      <DependentUpon>testMax.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -277,7 +285,6 @@
     <Folder Include="X-Espace de developpement\frederic\" />
     <Folder Include="X-Espace de developpement\gael\" />
     <Folder Include="X-Espace de developpement\gaetan\" />
-    <Folder Include="X-Espace de developpement\maxime\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MVC\Vue\PageDefault\packages.config" />
