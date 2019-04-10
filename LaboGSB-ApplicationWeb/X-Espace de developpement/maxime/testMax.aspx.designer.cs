@@ -7,10 +7,10 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace LaboGSB_ApplicationWeb.MVC.Vue.vueCR {
+namespace LaboGSB_ApplicationWeb.X_Espace_de_developpement.maxime {
     
     
-    public partial class WebForm1 {
+    public partial class testMax {
         
         /// <summary>
         /// Contrôle form1.
@@ -20,14 +20,5 @@ namespace LaboGSB_ApplicationWeb.MVC.Vue.vueCR {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// Contrôle Button1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

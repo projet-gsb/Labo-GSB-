@@ -13,5 +13,20 @@ namespace LaboGSB_ApplicationWeb.MVC.Vue.vueCR
         {
 
         }
+
+        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("FormEtablissement.aspx");
+        }
+
+        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
+        {
+
+        }
     }
 }
