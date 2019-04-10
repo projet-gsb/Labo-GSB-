@@ -13,15 +13,5 @@ namespace LaboGSB_ApplicationWeb.MVC.Vue.vueCR
         {
 
         }
-
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
